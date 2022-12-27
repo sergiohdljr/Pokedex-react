@@ -1,5 +1,8 @@
+import { Header } from "../../components/Header/header";
+import { PokeWrapper } from "../../components/PokeWrapper/pokeWrapper";
+
 export const Home = () =>{
-    return(
-        <h1>Home</h1>
-    )
+    return (
+        <Header></Header>
+    );
 }
