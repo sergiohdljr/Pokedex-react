@@ -1,8 +1,27 @@
+import { useState, useEffect } from "react";
 import { Header } from "../../components/Header/header";
-import { PokeWrapper } from "../../components/PokeWrapper/pokeWrapper";
+import {SearchPokemon} from "../../components/SearchPokemon/searchPokemon";
 
 export const Home = () =>{
+
+const [Pokemon, setPokemon] = useState([])
+
+  useEffect(()=>{
+     const fetchPokemon = async (url) => {
+     const req = await fetch(url);
+     const resp = await req.json();
+     const urls = resp.results.map(
+     async (resp) => await fetch(resp.url).then((results) => results.json()));
+     const resultados = await Promise.all(urls);
+     setPokemon(resultados);
+   };
+   fetchPokemon("https://pokeapi.co/api/v2/pokemon?limit=154");
+  },[])
+
     return (
+      <>
         <Header></Header>
+        <SearchPokemon pokemons={Pokemon}></SearchPokemon>
+      </>
     );
 }

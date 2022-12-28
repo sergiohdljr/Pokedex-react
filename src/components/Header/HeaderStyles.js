@@ -4,7 +4,7 @@ const HeaderStyles = styled.div`
 display: flex;
 gap: 0.5rem;
 align-items: center;
-width: 95%;
+width: 100%;
 height: 2rem;
 margin: 0 auto;
 margin-top: 2rem;
