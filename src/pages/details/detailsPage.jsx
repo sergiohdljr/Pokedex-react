@@ -1,3 +1,7 @@
- export const DetailsPage = () => {
-  return <h1>Details</h1>;
+import {useParams} from 'react-router-dom'
+
+export const DetailsPage = () => {
+  const {nome} = useParams()
+   
+  return <h1>{nome}</h1>;
 };

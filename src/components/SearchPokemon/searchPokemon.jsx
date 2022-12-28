@@ -2,6 +2,8 @@ import SearchPoke from "./searchPokeStyles";
 import buscaLupa from "../../assets/Lupa.svg";
 import { PokeCard } from "../PokeCard/PokeCard";
 import { useState } from "react";
+import {NomeUpperCase,NormalizeNome,fillId} from '../../utils/utils'
+
 
 export const SearchPokemon = ({ pokemons }) => {
   const [valorBusca, setBusca] = useState("");
@@ -22,12 +24,14 @@ export const SearchPokemon = ({ pokemons }) => {
       </form>
       <div className="Pokemon__container">
         {pokemons &&
-          pokemons?.map(({ id, name, sprites, types }) => {
+          pokemons
+          ?.filter(({name})=>name.includes(valorBusca))
+           .map(({ id, name, sprites, types }) => {
             return (
               <PokeCard
                 key={id}
-                id={id}
-                nome={name}
+                id={fillId(id)}
+                nome={NormalizeNome(NomeUpperCase(name))}
                 tipo={types.map(({ type }) => type.name)[0].toString()}
                 pic={sprites.other.dream_world.front_default}
               />

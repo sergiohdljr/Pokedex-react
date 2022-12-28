@@ -1,10 +1,12 @@
 import CardStyles from "./CardStyles";
+import {Link} from 'react-router-dom'
 
 export const PokeCard = ({tipo,id,nome,pic}) => {
   return (
-      <CardStyles tipo={tipo}>
+    <Link to={`/details/${nome.toLowerCase()}`}>
+    <CardStyles tipo={tipo}>
       <div className="Card__id">
-        <h4>#{id}</h4>
+        <h4>{id}</h4>
       </div>
       <figure>
         <img src={pic} alt="" />
@@ -13,5 +15,6 @@ export const PokeCard = ({tipo,id,nome,pic}) => {
           <h4>{nome}</h4>
       </div>
     </CardStyles>
+    </Link>
   );
 };
