@@ -4,6 +4,8 @@ import pokedex from "../../assets/Pokedex.svg";
 export const DetailStyle = styled.div`
   display: flex;
   flex-direction: column;
+  align-self: center;
+  justify-self: center;
   width: 360px;
   height: 640px;
   padding: 1rem;
@@ -22,6 +24,19 @@ export const DetailStyle = styled.div`
     width: 100%;
     margin: 0 auto;
 
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0.5rem;
+      border-radius: 50%;
+      cursor: pointer;
+      background-color: ${({ theme, tipo }) => theme.pokemonType[tipo]};
+      :hover {
+        opacity: 70%;
+      }
+    }
+
     h1 {
       flex-grow: 1;
       font-size: 24px;
@@ -35,18 +50,14 @@ export const DetailStyle = styled.div`
     }
   }
   .Detail__Sprite {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 220px;
+
     img {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 0px;
-      position: absolute;
-      width: 200px;
-      height: 200px;
-      left: 124.4px;
-      top: 101.07px;
-      transform: rotate(0.05deg);
+      width: 100%;
+      height: 100%;
     }
   }
   .Details__infos {
@@ -72,7 +83,7 @@ export const DetailStyle = styled.div`
     .Details__about {
       font-size: 14px;
       font-weight: 700;
-      color: ${({ theme,tipo }) => theme.pokemonType[tipo]};
+      color: ${({ theme, tipo }) => theme.pokemonType[tipo]};
     }
     .Details__Peso_altura_Moves {
       width: 90%;
@@ -80,7 +91,7 @@ export const DetailStyle = styled.div`
       grid-template-columns: 1fr 1fr 1fr;
       grid-template-rows: 1fr;
 
-      .Peso-altura-moves{
+      .Peso-altura-moves {
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: 3fr 1fr;
@@ -89,29 +100,29 @@ export const DetailStyle = styled.div`
         width: 100%;
         height: 48px;
 
-        div{
+        div {
           display: flex;
           justify-content: center;
           align-items: center;
           gap: 0.8rem;
         }
 
-        img{
+        img {
           justify-items: center;
         }
 
-        #details{
+        #details {
           font-size: 0.7rem;
           text-align: center;
         }
 
-        p{
-          color:${({theme})=>theme.grayScale.mediumGray};
+        p {
+          color: ${({ theme }) => theme.grayScale.mediumGray};
           font-size: 0.7rem;
           text-align: center;
         }
 
-        #ataques{
+        #ataques {
           gap: 0;
           display: flex;
           flex-direction: column;

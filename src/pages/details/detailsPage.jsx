@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { DetailStyle, TipoPokemonStyle } from "./detailsStyles";
 import { fillId, NomeUpperCase, NormalizeNome } from "../../utils/utils";
 import seta from "../../assets/Arrow-left.svg";
-import peso from '../../assets/peso.svg'
+import peso from "../../assets/peso.svg";
 import altura from "../../assets/altura.svg";
-
+import { ContainerApp } from "../../styles/AppContainer";
 
 export const DetailsPage = () => {
   const { nome } = useParams();
@@ -18,16 +18,20 @@ export const DetailsPage = () => {
   }, []);
 
   return (
-    <>
+    <ContainerApp
+      tipo={pokemon?.map(({ types }) => types.map(({ type }) => type.name)[0])}
+    >
       {pokemon &&
-        pokemon?.map(({ name, types, id, sprites, weight, height,moves }) => {
+        pokemon?.map(({ name, types, id, sprites, weight, height, moves }) => {
           return (
             <DetailStyle
               key={id}
               tipo={types?.map((tipo) => tipo.type.name)[0]}
             >
               <div className="Detail__Header">
-                <img src={seta} alt="" />
+                <Link to={"/"}>
+                  <img src={seta} alt="" />
+                </Link>
                 <h1>{NormalizeNome(NomeUpperCase(name))}</h1>
                 <p>{fillId(id)}</p>
               </div>
@@ -64,8 +68,8 @@ export const DetailsPage = () => {
                   </div>
                   <div className="Peso-altura-moves">
                     <div id="ataques">
-                      {moves.slice(0,2).map(({ move }) => (
-                        <p>{move.name}</p>
+                      {moves.slice(0, 2).map(({ move }) => (
+                        <p key={move.name}>{move.name}</p>
                       ))}
                     </div>
                     <p>ataques</p>
@@ -75,6 +79,6 @@ export const DetailsPage = () => {
             </DetailStyle>
           );
         })}
-    </>
+    </ContainerApp>
   );
 };
