@@ -6,7 +6,8 @@ export const DetailStyle = styled.div`
   flex-direction: column;
   align-self: center;
   justify-self: center;
-  width: 360px;
+  min-width: 360px;
+  width: 40%;
   height: 640px;
   padding: 1rem;
   background-color: ${({ theme, tipo }) => theme.pokemonType[tipo]};
@@ -14,7 +15,6 @@ export const DetailStyle = styled.div`
   background-repeat: no-repeat;
   background-position: top 2% left 90%;
   background-size: 208px;
-  backdrop-filter: blue;
 
   .Detail__Header {
     display: flex;
@@ -111,7 +111,8 @@ export const DetailStyle = styled.div`
           justify-items: center;
         }
 
-        #details {
+        .details {
+          color: ${({ theme }) => theme.grayScale.darkGray};
           font-size: 0.7rem;
           text-align: center;
         }
@@ -126,6 +127,10 @@ export const DetailStyle = styled.div`
           gap: 0;
           display: flex;
           flex-direction: column;
+
+          p {
+            color: ${({ theme }) => theme.grayScale.darkGray};
+          }
         }
       }
     }

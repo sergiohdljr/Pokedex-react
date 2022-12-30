@@ -14,9 +14,21 @@ export const NormalizeNome = (nome) => {
     }
 } 
 
+// preencher id do pokemon com 0 e # 7 => #007
 export const fillId = (number) => {
    return `#${number.toString().padStart(3,'0')}`
 }
 
-const nome = 55
-// nome.
+// formatar altura do pokemon 
+export const alturaPokemon = (altura) =>{
+   if(altura.toString().length === 1){
+      return `0.${altura} m`
+   }else{
+      return`${[...altura.toString()]} m`
+   }
+}
+
+// formatar peso pokemon 
+export const pesoPokemon = (peso) => {
+  return parseInt(peso.toString().slice(0,-1)).toFixed(1)
+}

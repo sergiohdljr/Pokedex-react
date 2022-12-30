@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { DetailStyle, TipoPokemonStyle } from "./detailsStyles";
-import { fillId, NomeUpperCase, NormalizeNome } from "../../utils/utils";
+import { fillId, NomeUpperCase, NormalizeNome,alturaPokemon,pesoPokemon } from "../../utils/utils";
 import seta from "../../assets/Arrow-left.svg";
 import peso from "../../assets/peso.svg";
 import altura from "../../assets/altura.svg";
@@ -55,14 +55,14 @@ export const DetailsPage = () => {
                   <div className="Peso-altura-moves">
                     <div>
                       <img src={peso} alt="" />
-                      <p id="details">{weight}</p>
+                      <p className="details">{pesoPokemon(weight)} kg</p>
                     </div>
                     <p>peso</p>
                   </div>
                   <div className="Peso-altura-moves">
                     <div>
                       <img src={altura} alt="" />
-                      <p id="details">{height}</p>
+                      <p className="details">{alturaPokemon(height)}</p>
                     </div>
                     <p>altura</p>
                   </div>
