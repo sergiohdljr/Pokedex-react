@@ -7,6 +7,7 @@ export default createGlobalStyle`
     margin: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    transition: all 0.3s;
 }
 
 body{
@@ -15,5 +16,9 @@ body{
 
 input,a,button{
     all: unset;
+}
+
+a:hover{
+   transform:scale(1.1);
 }
 `;
