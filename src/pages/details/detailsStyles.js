@@ -69,7 +69,7 @@ export const DetailStyle = styled.div`
     align-items: center;
     width: 100%;
     background-color: ${({ theme }) => theme.grayScale.white};
-    padding: 56px 20px 0px 20px;
+    padding: 27px 20px 0px 20px;
     border-radius: 0.5rem;
 
     .info__tipo {
@@ -86,7 +86,7 @@ export const DetailStyle = styled.div`
       color: ${({ theme, tipo }) => theme.pokemonType[tipo]};
     }
     .Details__Peso_altura_Moves {
-      width: 90%;
+      width: 100%;
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       grid-template-rows: 1fr;
@@ -98,7 +98,6 @@ export const DetailStyle = styled.div`
         justify-content: center;
         align-items: center;
         width: 100%;
-        height: 48px;
 
         div {
           display: flex;
@@ -135,7 +134,45 @@ export const DetailStyle = styled.div`
       }
     }
   }
+  .base-stats {
+    width: 100%;
+    height: 170px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-top: 1rem;
+    h3 {
+      text-align: center;
+      font-size: 14px;
+      font-weight: 700;
+      color: ${({ theme, tipo }) => theme.pokemonType[tipo]};
+    }
+    .stats_container {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      gap: 0.3rem;
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(6, 15px);
+
+      .stat {
+        height: 15px;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        justify-content: space-between;
+        p {
+          width: 28px;
+          font-size: 12px;
+          font-weight: 500;
+          text-align:left;
+          color: ${({ theme, tipo }) => theme.pokemonType[tipo]};
+        }
+      }
+    }
+  }
 `;
+
 export const TipoPokemonStyle = styled.div`
   padding: 0.5rem;
   font-size: 12px;
@@ -144,4 +181,18 @@ export const TipoPokemonStyle = styled.div`
   border-radius: 1rem;
   color: ${({ theme }) => theme.grayScale.white};
   background-color: ${({ theme, tipo }) => theme.pokemonType[tipo]};
+`;
+
+export const ProgressBar = styled.div`
+  flex-grow: 1;
+  height: 4px;
+  background-color: blue;
+  border-radius: 0.5rem;
+  background-color: ${({ theme }) => theme.grayScale.lightGray};
+  .progress {
+    width: ${({ progress }) => `${progress}px`};
+    height: 100%;
+    background-color: ${({ theme, tipo }) => theme.pokemonType[tipo]};
+    border-radius: 0.5rem;
+  }
 `;

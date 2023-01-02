@@ -32,3 +32,25 @@ export const alturaPokemon = (altura) =>{
 export const pesoPokemon = (peso) => {
   return parseInt(peso.toString().slice(0,-1)).toFixed(1)
 }
+
+// dicionário status
+export const statName = (stat) =>{
+ if(stat === 'hp'){
+   return stat.toUpperCase()
+ } 
+ if(stat === 'attack'){
+   return 'ATK'
+ }
+ if(stat === 'defense'){
+   return 'DEF'
+ }
+ if(stat === 'special-attack'){
+   return 'SATK'
+ }
+ if(stat === 'special-defense'){
+   return 'SDEF'
+ }
+ if(stat === 'speed'){
+   return 'SPD'
+ }
+}

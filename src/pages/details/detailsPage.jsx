@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { DetailStyle, TipoPokemonStyle } from "./detailsStyles";
-import { fillId, NomeUpperCase, NormalizeNome,alturaPokemon,pesoPokemon } from "../../utils/utils";
+import { fillId, NomeUpperCase, NormalizeNome,alturaPokemon,pesoPokemon,statName} from "../../utils/utils";
 import seta from "../../assets/Arrow-left.svg";
 import peso from "../../assets/peso.svg";
 import altura from "../../assets/altura.svg";
 import { ContainerApp } from "../../styles/AppContainer";
+import { ProgressBar } from "./detailsStyles";
 
 export const DetailsPage = () => {
   const { nome } = useParams();
@@ -22,7 +23,7 @@ export const DetailsPage = () => {
       tipo={pokemon?.map(({ types }) => types.map(({ type }) => type.name)[0])}
     >
       {pokemon &&
-        pokemon?.map(({ name, types, id, sprites, weight, height, moves }) => {
+        pokemon?.map(({ name, types, id, sprites, weight, height, moves, stats }) => {
           return (
             <DetailStyle
               key={id}
@@ -68,11 +69,30 @@ export const DetailsPage = () => {
                   </div>
                   <div className="Peso-altura-moves">
                     <div id="ataques">
-                      {moves.slice(0, 2).map(({ move }) => (
+                      {moves.slice(moves.length - 2).map(({ move }) => (
                         <p key={move.name}>{move.name}</p>
                       ))}
                     </div>
                     <p>ataques</p>
+                  </div>
+                </div>
+                <div className="base-stats">
+                  <h3>Base stats</h3>
+                  <div className="stats_container">
+                  {stats.map(({base_stat,stat}) =>{
+                   return (
+                     <div className="stat">
+                       <p>{statName(stat.name)}</p>
+                       <p>{base_stat}</p>
+                       <ProgressBar
+                         tipo={types?.map((tipo) => tipo.type.name)[0]}
+                         progress={base_stat}
+                       >
+                         <div className="progress"></div>
+                       </ProgressBar>
+                     </div>
+                   );                   
+                  })}
                   </div>
                 </div>
               </div>

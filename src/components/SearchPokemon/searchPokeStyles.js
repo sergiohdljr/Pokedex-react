@@ -42,6 +42,7 @@ const SearchPoke = styled.div`
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     grid-template-rows: auto;
+    justify-items: center;
     gap: 1rem;
   }
 `;
