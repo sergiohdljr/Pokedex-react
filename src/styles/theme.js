@@ -25,5 +25,6 @@ export const theme = {
     flying: "#A891EC",
     fighting: "#C12239",
     normal: "#AAA67F",
+    legendary: "#fad400",
   },
 };
