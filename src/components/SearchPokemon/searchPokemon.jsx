@@ -30,7 +30,7 @@ export const SearchPokemon = ({ pokemons }) => {
             return (
               <PokeCard
                 key={id}
-                id={fillId(id)}
+                id={id}
                 nome={NormalizeNome(NomeUpperCase(name))}
                 tipo={types.map(({ type }) => type.name)[0].toString()}
                 pic={sprites.other.dream_world.front_default}

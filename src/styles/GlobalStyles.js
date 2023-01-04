@@ -21,4 +21,8 @@ input,a,button{
 a:hover{
    transform:scale(1.1);
 }
+
+button{
+    cursor: pointer;
+}
 `;

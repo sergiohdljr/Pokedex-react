@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, redirect, useNavigate } from "react-router-dom";
 import { DetailStyle, TipoPokemonStyle } from "./detailsStyles";
 import {
   fillId,
@@ -12,23 +12,38 @@ import {
 import seta from "../../assets/Arrow-left.svg";
 import peso from "../../assets/peso.svg";
 import altura from "../../assets/altura.svg";
+import leftArrow from "../../assets/change-pic-arrow-esq.svg";
+import rigthArrow from "../../assets/change-pic-arrow-dir.svg";
 import { ContainerApp } from "../../styles/AppContainer";
 import { ProgressBar } from "./detailsStyles";
 
 export const DetailsPage = () => {
-  const { nome } = useParams();
+  const { id } = useParams();
   const [pokemon, setPokemon] = useState();
   const [species, setSpecies] = useState();
+  const [pokemonId, setPokemonId] = useState(id);
 
   useEffect(() => {
-    fetch(`https://pokeapi.co/api/v2/pokemon/${nome}/`)
+    fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}/`)
       .then((respo) => respo.json())
       .then((poke) => setPokemon([poke]));
 
-    fetch(`https://pokeapi.co/api/v2/pokemon-species/${nome}/`)
+    fetch(`https://pokeapi.co/api/v2/pokemon-species/${pokemonId}/`)
       .then((respo) => respo.json())
       .then((speciesPokemon) => setSpecies(speciesPokemon));
   }, []);
+
+  const navigate = useNavigate();
+
+  const nextPokemon = () => {
+    navigate(`/details/${parseInt(id) + 1}/`);
+    document.location.reload(true);  
+  };
+
+  const previousPokemon = () => {
+    navigate(`/details/${parseInt(id) - 1}/`);
+    document.location.reload(true);
+  };
 
   return (
     <ContainerApp
@@ -50,7 +65,20 @@ export const DetailsPage = () => {
                   <p>{fillId(id)}</p>
                 </div>
                 <figure className="Detail__Sprite">
+                  <button
+                    onClick={previousPokemon}
+                    className="Detail_nextPokemon"
+                  >
+                    <i>
+                      <img src={leftArrow} alt="" />
+                    </i>
+                  </button>
                   <img src={sprites.other.dream_world.front_default} alt="" />
+                  <button onClick={nextPokemon} className="Detail_nextPokemon">
+                    <i>
+                      <img src={rigthArrow} alt="" />
+                    </i>
+                  </button>
                 </figure>
                 <div className="Details__infos">
                   <div className="info__tipo">

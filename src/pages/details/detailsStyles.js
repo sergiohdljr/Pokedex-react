@@ -55,8 +55,21 @@ export const DetailStyle = styled.div`
     align-items: center;
     height: 220px;
 
+    .Detail_nextPokemon{
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       width: 30px;
+       height: 25px;
+       border-radius: 50%;
+
+       :hover{
+        opacity: 70%;
+       }
+    } 
     img {
-      width: 100%;
+      flex-grow: 1;
+      width: 93%;
       height: 100%;
     }
   }
@@ -165,7 +178,7 @@ export const DetailStyle = styled.div`
           width: 28px;
           font-size: 12px;
           font-weight: 500;
-          text-align:left;
+          text-align: left;
           color: ${({ theme, tipo }) => theme.pokemonType[tipo]};
         }
       }
