@@ -36,12 +36,12 @@ export const DetailsPage = () => {
   const navigate = useNavigate();
 
   const nextPokemon = () => {
-    navigate(`/details/${parseInt(id) + 1}/`);
+    navigate(`/details/${parseInt(id) + 1}`);
     document.location.reload(true);  
   };
 
   const previousPokemon = () => {
-    navigate(`/details/${parseInt(id) - 1}/`);
+    navigate(`/details/${parseInt(id) - 1}`);
     document.location.reload(true);
   };
 
