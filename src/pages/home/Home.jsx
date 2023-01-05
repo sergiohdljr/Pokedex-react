@@ -1,23 +1,15 @@
-import { useState, useEffect } from "react";
 import { Header } from "../../components/Header/header";
 import { SearchPokemon } from "../../components/SearchPokemon/searchPokemon";
 import { ContainerHome } from "../../styles/AppContainer";
+import { useQuery } from "react-query";
+import { fetchPokemon } from "../../utils/utils";
 
 export const Home = () => {
-  const [Pokemon, setPokemon] = useState([]);
-
-  useEffect(() => {
-    const fetchPokemon = async (url) => {
-      const req = await fetch(url);
-      const resp = await req.json();
-      const urls = resp.results.map(
-        async (resp) => await fetch(resp.url).then((results) => results.json())
-      );
-      const resultados = await Promise.all(urls);
-      setPokemon(resultados);
-    };
-    fetchPokemon("https://pokeapi.co/api/v2/pokemon?limit=154");
-  }, []);
+  const { data: Pokemon, isFetching } = useQuery(
+    "pokemons",
+    async () =>
+      await fetchPokemon("https://pokeapi.co/api/v2/pokemon?limit=154")
+  );
 
   return (
     <ContainerHome>

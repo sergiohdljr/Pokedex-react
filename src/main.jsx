@@ -4,12 +4,16 @@ import { ThemeProvider } from "styled-components";
 import { theme } from "./styles/theme";
 import GlobalStyle from "./styles/GlobalStyles";
 import { Rotas } from "./rotas/route";
+import { QueryClientProvider } from "react-query";
+import { service } from "./service/service";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <Rotas />
-    </ThemeProvider>
+    <QueryClientProvider client={service}>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <Rotas />
+      </ThemeProvider>
+    </QueryClientProvider>
   </React.StrictMode>
 );

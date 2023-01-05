@@ -54,3 +54,33 @@ export const statName = (stat) =>{
    return 'SPD'
  }
 }
+
+// função para fazer o fetch dos dados dos pokemons 
+export const fetchPokemon = async (url) => {
+    const req = await fetch(url);
+    const resp = await req.json();
+    const urls = resp.results.map(
+      async (resp) => await fetch(resp.url).then((results) => results.json())
+    );
+    const resultados = await Promise.all(urls);
+    return resultados
+  };
+
+  // fetch details 
+  export const fetchPokemonDetails = async (page, url) => {
+    const pokemon = await fetch(`${url}/pokemon/${page}/`);
+    const resultado = await pokemon.json();
+    return resultado;
+  };
+
+  export const fetchPokemonSpecies = async (page, url) => {
+    const pokemon = await fetch(`${url}/pokemon-species/${page}/`);
+    const resultado = await pokemon.json();
+    return resultado;
+  };
+  
+  export const formatarText = (text) =>{
+    if(text?.includes(".")){
+      return text?.slice(0,text.indexOf('.')+1)
+    }
+  } 
