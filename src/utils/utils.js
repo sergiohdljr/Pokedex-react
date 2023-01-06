@@ -79,13 +79,12 @@ export const fetchPokemon = async (url) => {
     return resultado;
   };
   
-  const bola = "adidas"
-  // bola.replace()
-
+  // função formatar texto sobre o pokemon 
   export const formatarText = (text) =>{
-    if(text?.includes("\f")){
-      return text?.replace("\f",' ')
-    }else{
+    if(text?.includes("\f")){ 
+      return text?.replace("\f", " ");
+    }
+    else{
       return text
     }
   } 
