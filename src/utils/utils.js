@@ -67,14 +67,8 @@ export const fetchPokemon = async (url) => {
   };
 
   // fetch details 
-  export const fetchPokemonDetails = async (page, url) => {
-    const pokemon = await fetch(`${url}/pokemon/${page}/`);
-    const resultado = await pokemon.json();
-    return resultado;
-  };
-
-  export const fetchPokemonSpecies = async (page, url) => {
-    const pokemon = await fetch(`${url}/pokemon-species/${page}/`);
+  export const fetchPokemonDetails = async (id, path) => {
+    const pokemon = await fetch(`https://pokeapi.co/api/v2/${path}/${id}/`);
     const resultado = await pokemon.json();
     return resultado;
   };

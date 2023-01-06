@@ -19,7 +19,7 @@ export const CardDetails = ({
   height,
   moves,
   stats,
-  species
+  species,
 }) => {
   return (
     <DetailStyle key={id} tipo={types?.map(({ type }) => type.name)[0]}>
@@ -31,17 +31,7 @@ export const CardDetails = ({
         <p>{id}</p>
       </div>
       <figure className="Detail__Sprite">
-        <button className="Detail_nextPokemon">
-          <i>
-            <img src={leftArrow} alt="" />
-          </i>
-        </button>
         <img src={sprites?.other.dream_world.front_default} alt="" />
-        <button className="Detail_nextPokemon">
-          <i>
-            <img src={rigthArrow} alt="" />
-          </i>
-        </button>
       </figure>
       <div className="Details__infos">
         <div className="info__tipo">

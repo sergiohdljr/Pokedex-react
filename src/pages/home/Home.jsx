@@ -5,7 +5,7 @@ import { useQuery } from "react-query";
 import { fetchPokemon } from "../../utils/utils";
 
 export const Home = () => {
-  const { data: Pokemon, isFetching } = useQuery(
+  const { data: Pokemon, isLoading } = useQuery(
     "pokemons",
     async () =>
       await fetchPokemon("https://pokeapi.co/api/v2/pokemon?limit=154")
@@ -14,7 +14,7 @@ export const Home = () => {
   return (
     <ContainerHome>
       <Header></Header>
-      <SearchPokemon pokemons={Pokemon}></SearchPokemon>
+      <SearchPokemon pokemons={Pokemon} loading={isLoading}></SearchPokemon>
     </ContainerHome>
   );
 };

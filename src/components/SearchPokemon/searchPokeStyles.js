@@ -44,6 +44,12 @@ const SearchPoke = styled.div`
     grid-template-rows: auto;
     justify-items: center;
     gap: 1rem;
+
+    .Pokemon_loading{
+      font-size: 14px;
+      font-weight: 400;
+      color: ${({theme})=>theme.grayScale.mediumGray}
+    }
   }
 `;
 
