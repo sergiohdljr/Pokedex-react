@@ -6,6 +6,7 @@ import {NomeUpperCase,NormalizeNome} from '../../utils/utils'
 
 
 export const SearchPokemon = ({ pokemons, loading }) => {
+  
   const [valorBusca, setBusca] = useState("");
 
   return (
@@ -34,8 +35,7 @@ export const SearchPokemon = ({ pokemons, loading }) => {
                 id={id}
                 nome={NormalizeNome(NomeUpperCase(name))}
                 tipo={types.map(({ type }) => type.name)[0].toString()}
-                pic={sprites.other.dream_world.front_default}
-              />
+                pic={sprites.other.dream_world.front_default}/>
             );
           })}
       </section>
