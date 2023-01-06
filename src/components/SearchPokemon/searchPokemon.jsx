@@ -10,7 +10,7 @@ export const SearchPokemon = ({ pokemons, loading }) => {
 
   return (
     <SearchPoke>
-      <form action="">
+      <form>
         <i>
           <img src={buscaLupa} alt="" width="10px" />
         </i>
@@ -22,7 +22,7 @@ export const SearchPokemon = ({ pokemons, loading }) => {
           placeholder="buscar pokemon"
         />
       </form>
-      <div className="Pokemon__container">
+      <section className="Pokemon__container">
         {loading && <h1 className="Pokemon_loading">carregando pokemons...</h1>}
         {pokemons &&
           pokemons
@@ -38,7 +38,7 @@ export const SearchPokemon = ({ pokemons, loading }) => {
               />
             );
           })}
-      </div>
+      </section>
     </SearchPoke>
   );
 };
