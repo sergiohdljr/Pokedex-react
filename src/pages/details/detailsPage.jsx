@@ -13,6 +13,7 @@ import { CardDetails } from "../../components/CardPokemonDetails/CardDetails";
 import { ContainerApp } from "../../styles/AppContainer";
 
 export const DetailsPage = () => {
+  
   const { id } = useParams();
 
   const {data: pokemon,error,isLoading,isError} = useQuery(

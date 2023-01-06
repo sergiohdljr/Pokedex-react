@@ -1,8 +1,6 @@
 import seta from "../../assets/Arrow-left.svg";
 import peso from "../../assets/peso.svg";
 import altura from "../../assets/altura.svg";
-import leftArrow from "../../assets/change-pic-arrow-esq.svg";
-import rigthArrow from "../../assets/change-pic-arrow-dir.svg";
 import { ProgressBar } from "./CardDetailsStyles";
 import { DetailStyle } from "./CardDetailsStyles";
 import { Link } from "react-router-dom";
@@ -11,14 +9,10 @@ import {statName,formatarText} from '../../utils/utils'
 
 
 export const CardDetails = ({
-  name,
-  types,
-  id,
-  sprites,
-  weight,
-  height,
-  moves,
-  stats,
+  name,types,
+  id,sprites,
+  weight,height,
+  moves,stats,
   species,
 }) => {
   return (
@@ -90,8 +84,7 @@ export const CardDetails = ({
                   <p>{base_stat}</p>
                   <ProgressBar
                     tipo={types?.map((tipo) => tipo.type.name)[0]}
-                    progress={base_stat}
-                  >
+                    progress={base_stat}>
                     <div className="progress"></div>
                   </ProgressBar>
                 </div>
