@@ -26,5 +26,6 @@ export const theme = {
     fighting: "#C12239",
     normal: "#AAA67F",
     legendary: "#fad400",
+    mythical : "red",
   },
 };

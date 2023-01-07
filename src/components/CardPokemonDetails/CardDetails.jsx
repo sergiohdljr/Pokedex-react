@@ -43,6 +43,11 @@ export const CardDetails = ({
               {species?.is_legendary && "legendary"}
             </TipoPokemonStyle>
           )}
+          {species?.is_mythical && (
+            <TipoPokemonStyle tipo={species?.is_mythical && "mythical"}>
+              {species?.is_mythical && "mythical"}
+            </TipoPokemonStyle>
+          )}
         </div>
         <h3 className="Details__about">About</h3>
         <div className="Details__Peso_altura_Moves">
@@ -70,8 +75,13 @@ export const CardDetails = ({
           </div>
         </div>
         <p className="aboutPokemon">
-          {formatarText(species?.flavor_text_entries.filter((species)=>species.language.name === "en").slice(0, 1)
-            .map(({ flavor_text }) => flavor_text).toString())}
+          {formatarText(
+            species?.flavor_text_entries
+              .filter((species) => species.language.name === "en")
+              .slice(0, 1)
+              .map(({ flavor_text }) => flavor_text)
+              .toString()
+          )}
         </p>
         <div className="base-stats">
           <h3>Base stats</h3>
@@ -84,7 +94,8 @@ export const CardDetails = ({
                   <p>{base_stat}</p>
                   <ProgressBar
                     tipo={types?.map((tipo) => tipo.type.name)[0]}
-                    progress={base_stat}>
+                    progress={base_stat}
+                  >
                     <div className="progress"></div>
                   </ProgressBar>
                 </div>
