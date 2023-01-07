@@ -4,7 +4,7 @@ import {fillId} from '../../utils/utils'
 
 export const PokeCard = ({tipo,id,nome,pic}) => {
   return (
-    <Link to={`/${id}`}>
+    <Link to={`/details/${id}`}>
       <CardStyles tipo={tipo}>
         <header className="Card__id">
           <h4>{fillId(id)}</h4>
