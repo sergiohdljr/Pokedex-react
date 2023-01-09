@@ -8,6 +8,7 @@ export default createGlobalStyle`
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
     transition: all 0.3s;
+    scroll-behavior: smooth;
 }
 
 body{

@@ -42,10 +42,12 @@ const SearchPoke = styled.div`
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     grid-template-rows: auto;
-    justify-items: center;
-    gap: 1rem;
+    justify-items:start;
+    justify-content:center;
+    gap: 1.5rem;
 
     .Pokemon_loading{
+      align-self: center;
       font-size: 14px;
       font-weight: 400;
       color: ${({theme})=>theme.grayScale.mediumGray}
