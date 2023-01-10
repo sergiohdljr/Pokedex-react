@@ -1,20 +1,36 @@
 import seta from "../../assets/Arrow-left.svg";
 import peso from "../../assets/peso.svg";
 import altura from "../../assets/altura.svg";
+import arrowRight from "../../assets/change-pic-arrow-dir.svg"
+import arrowLeft from "../../assets/change-pic-arrow-esq.svg"
 import { ProgressBar } from "./CardDetailsStyles";
 import { DetailStyle } from "./CardDetailsStyles";
 import { Link } from "react-router-dom";
 import { TipoPokemonStyle } from "./CardDetailsStyles";
-import {statName,formatarText} from '../../utils/utils'
-
+import { statName, formatarText } from "../../utils/utils";
+import { fillId } from "../../utils/utils";
 
 export const CardDetails = ({
-  name,types,
-  id,sprites,
-  weight,height,
-  moves,stats,
+  name,
+  types,
+  id,
+  sprites,
+  weight,
+  height,
+  moves,
+  stats,
   species,
+  changePokemon
 }) => {
+
+const previousPokemon = (id,changePokemon) =>{
+  if(id === 1){
+    return
+  }else{
+    changePokemon(parseInt(id)-1)
+  }
+}
+
   return (
     <DetailStyle key={id} tipo={types?.map(({ type }) => type.name)[0]}>
       <div className="Detail__Header">
@@ -22,10 +38,25 @@ export const CardDetails = ({
           <img src={seta} alt="" />
         </Link>
         <h1>{name}</h1>
-        <p>{id}</p>
+        <p>{fillId(id)}</p>
       </div>
       <figure className="Detail__Sprite">
+        <button
+          onClick={()=>previousPokemon(id,changePokemon)}
+          className="Detail_nextPokemon">
+          <i>
+            <img src={arrowLeft} alt="" />
+          </i>
+        </button>
         <img src={sprites?.other.dream_world.front_default} alt="" />
+        <button
+          onClick={() => changePokemon(parseInt(id) + 1)}
+          className="Detail_nextPokemon"
+        >
+          <i>
+            <img src={arrowRight} alt="" />
+          </i>
+        </button>
       </figure>
       <div className="Details__infos">
         <div className="info__tipo">
