@@ -148,6 +148,7 @@ export const DetailStyle = styled.div`
     }
   }
   .aboutPokemon {
+    width: 95%;
     font-size: 0.7rem;
     text-align: justify;
     color: ${({theme})=>theme.grayScale.mediumGray};
@@ -155,7 +156,7 @@ export const DetailStyle = styled.div`
     margin-bottom: 0.3rem;
   }
   .base-stats {
-    width: 100%;
+    width: 95%;
     height: 170px;
     display: flex;
     flex-direction: column;
@@ -204,12 +205,12 @@ export const TipoPokemonStyle = styled.div`
 
 export const ProgressBar = styled.div`
   flex-grow: 1;
+  /* max-width: 266px; */
   height: 4px;
-  background-color: blue;
   border-radius: 0.5rem;
   background-color: ${({ theme }) => theme.grayScale.lightGray};
   .progress {
-    width: ${({ progress }) => `${progress}px`};
+    width:${({ progress }) => `${progress}px`};
     height: 100%;
     background-color: ${({ theme, tipo }) => theme.pokemonType[tipo]};
     border-radius: 0.5rem;

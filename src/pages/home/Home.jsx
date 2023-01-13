@@ -8,7 +8,7 @@ export const Home = () => {
   const { data: Pokemon, isLoading } = useQuery(
     "pokemons",
     async () =>
-      await fetchPokemon("https://pokeapi.co/api/v2/pokemon?limit=154")
+      await fetchPokemon("https://pokeapi.co/api/v2/pokemon?limit=200")
   );
 
   return (

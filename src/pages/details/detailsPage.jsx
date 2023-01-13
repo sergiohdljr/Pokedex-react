@@ -15,7 +15,7 @@ export const DetailsPage = () => {
 
   const { data: species } = useQuery([
     "species", idPokemon],
-    async () => await fetchPokemonDetails(idPokemon, "pokemon-species")
+    async () => await fetchPokemonDetails(idPokemon, "pokemon-species"),{keepPreviousData:true}
   );
 
   return (
